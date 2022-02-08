@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+
+    <title> testing</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+
+
+    <h1>  test</h1>
+    <p><button id="start">Start Capture</button> <button id="stop">Stop Capture</button></p>
+
+<video id="video" autoplay></video>
+<br>
+
+<strong>Log:</strong>
+<br>
+<pre id="log"></pre>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+
+    <div class="main">
+
+        <div class="steps"><button onclick=myFunction()>next step</button><p id="loop"></p></div>
+        <div class="website"><iframe src="https://reactjs.org/" height="700px" width="1000px"> </iframe></div>
+        <div class="video"><video id="facevideo" autoplay></video>
+        </div>
+
+    </div>
+
+
+    <audio id="player" controls></audio>
+    <script>
+      const player = document.getElementById('player');
+    
+      const handleSuccess = function(stream) {
+        if (window.URL) {
+          player.srcObject = stream;
+        } else {
+          player.src = stream;
+        }
+      };
+    
+      navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+          .then(handleSuccess);
+    </script>
+
+<div id="controls">
+    <button id="recordButton">Record</button>
+
+ </div>
+    <div id="website">
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
